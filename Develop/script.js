@@ -15,17 +15,18 @@ for (let i = 0; i < eachHour.length; i++) {
     var row = $("<div>").addClass("row");
 
     // Variable called "timeBlock" to display the array hours in our time block div
-    var hourBlock = $("<div>").addClass("time-block hour col-1").text(eachHour[i]); 
+    var timeBlock = $("<div>").addClass("time-block hour col-1").text(eachHour[i]); 
 
-    // Variable called "textArea" to create inputarea for user. 
-    var inputArea = $("<input>").addClass("col-10");
+    // Variable called "inputArea" to create inputarea for user. 
+    var inputArea = $("<input placeholder= 'Add your event here!'></input>").addClass("col-10");
 
-    // Variable called "button" created to save our inputs. 
-    var saveButton = $("<button>").addClass("saveBtn col-1");
+    // Variable called "saveButton" created to save our inputs. 
+    var saveButton = $("<button>").addClass("saveBtn col-1").text("Save");
 
     // Displaying or appending "rows" created above inside "container".
     container.append(row);
 
     // Displaying or appending "timeBlock", "textArea", "button".
-    row.append(hourBlock, inputArea, saveButton);
+    row.append(timeBlock, inputArea, saveButton);
 }
+
