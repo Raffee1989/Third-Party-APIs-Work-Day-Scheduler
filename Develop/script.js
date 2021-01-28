@@ -1,13 +1,14 @@
 // Current day shown on top of the page.
 var currentDay = moment().format("MM DD YYYY");
-$("#currentDay").text(currentDay);
+var currentTime = moment().hours()
+$("#currentDay").text(currentDay, currentTime);
 
 
 // Selecting the container by its class. 
 var container = $(".container");
 
 // // Array of times to be placed in each row. 
-var eachHour = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+var eachHour = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 
 // Looping through array made above. 
 for (let i = 0; i < eachHour.length; i++) {
@@ -16,7 +17,7 @@ for (let i = 0; i < eachHour.length; i++) {
     var row = $("<div>").addClass("row");
 
     // To display each hour in our time block divs
-    var timeBlock = $("<div>").addClass("col-1 time-block ").text(eachHour[i]);
+    var timeBlock = $("<div>").addClass("col-1 time-block  ").text(eachHour[i]);
 
     // Creating textarea for user inputs
     var eventArea = $("<textarea placeholder = 'Event'>").addClass("col-10 hour ").attr("id", eachHour[i]);
@@ -45,4 +46,26 @@ for (var t = 0; t < eachHour.length; t++) {
     var getInput = localStorage.getItem(eachHour[t])  
     timeId.textContent = getInput
 }
+
+function checkTime (){
+    var currentTime = moment().hours()
+    $(".time-block").each(function(){
+        var blockHour = parseInt($(this).text());
+
+        if(blockHour < currentTime){
+            $(this).addClass("past");
+        }else if (blockHour === currentTime){
+            $(this).removeClass("past");
+            $(this).addClass("present");
+
+        }else{
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
+    
+        }
+    })
+}
+
+checkTime();
 
