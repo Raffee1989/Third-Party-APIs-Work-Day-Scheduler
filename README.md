@@ -6,5 +6,5 @@ I had to develop a work day planner this week. I was given some HTML and CSS sta
 Will be provided.
 
 ## Deployed link
-Please click [here]() to see the website.  
+Please click [here](https://raffee1989.github.io/Work-Day-Scheduler/) to see the website.  
 
